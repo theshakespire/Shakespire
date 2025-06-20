@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakespire – Forsooth, Thou Shakest</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Garamond', serif;
+            background: #f5efe1;
+            color: #3b2a1c;
+        }
+        header {
+            background-color: #7a583a;
+            color: #fdf5e6;
+            text-align: center;
+            padding: 3em 1em 2em 1em;
+        }
+        header img {
+            width: 120px;
+            margin-bottom: 1em;
+        }
+        header h1 {
+            font-size: 3.2em;
+            margin: 0;
+            font-variant: small-caps;
+        }
+        header p {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 0.5em;
+        }
+        nav {
+            background: #5a3e2b;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            margin: 0 1.5em;
+            text-decoration: none;
+            color: #fdf2dd;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        section {
+            padding: 3em 2em;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .shake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2em;
+        }
+        .shake {
+            background: #fffaf1;
+            border: 2px solid #e4d7be;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .shake:hover {
+            transform: translateY(-5px);
+        }
+        .shake img {
+            width: 100%;
+            display: block;
+        }
+        .shake h3 {
+            margin: 0.5em 1em 0 1em;
+            font-size: 1.5em;
+            color: #4d2c13;
+        }
+        .shake p {
+            margin: 0.5em 1em 1em 1em;
+            font-size: 1em;
+            color: #5c4532;
+        }
+        h2 {
+            text-align: center;
+            color: #4d2c13;
+            font-size: 2.2em;
+            margin-bottom: 1em;
+        }
+        footer {
+            background-color: #4d2c13;
+            color: #f0e6d2;
+            text-align: center;
+            padding: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="shakespire_logopng.png" alt="Shakespire Logo">
+    <h1>Shakespire</h1>
+    <p>“To drink, or not to drink? There is no question.”</p>
+</header>
+
+<nav>
+    <a href="#shakes">Flavours</a>
+    <a href="#locations">Find Us</a>
+    <a href="#story">Tale</a>
+    <a href="#contact">Scroll Us</a>
+</nav>
+
+<section id="shakes">
+    <h2>Thy Shakes of Might</h2>
+    <div class="shake-grid">
+        <div class="shake">
+            <img src="musclebooster.jpeg" alt="Muscle Booster">
+            <h3>Muscle Booster</h3>
+            <p>Banana · Oats · Peanut Butter · Protein Blend<br><strong>50g Protein</strong></p>
+        </div>
+        <div class="shake">
+            <img src="beehive.jpeg" alt="Beehive">
+            <h3>Beehive</h3>
+            <p>Honey · Pistachios · Chia Seeds · Flax · Protein Blend<br><strong>35g Protein</strong></p>
+        </div>
+        <div class="shake">
+            <img src="chocolate.jpeg" alt="Chocolate Shakespire">
+            <h3>Chocolate Shakespire</h3>
+            <p>Hazelnuts · Chocolate Protein · Dark Chocolate Protein<br><strong>35g Protein</strong></p>
+        </div>
+        <div class="shake">
+            <img src="dubaidrip.jpeg" alt="Dubai Drip">
+            <h3>Dubai Drip</h3>
+            <p>Pistachio · Chocolate Protein · Protein Blend<br><strong>35g Protein</strong></p>
+        </div>
+        <div class="shake">
+            <img src="berryburn.jpeg" alt="Berry Burn">
+            <h3>Berry Burn</h3>
+            <p>Cranberries · Protein Blend<br><strong>35g Protein</strong></p>
+        </div>
+    </div>
+</section>
+
+<section id="locations">
+    <h2>Where Doth One Find Us?</h2>
+    <p>Seek our elixirs in select gyms, cafés, and halls of health. Shakespire cometh not by mail — but by might, in person.</p>
+</section>
+
+<section id="story">
+    <h2>The Tale of Shakespire</h2>
+    <p>Forged in the mind of a dreamer who lifteth iron and readeth verse, Shakespire is the draught for those who sculpt thy form and ponder thy soul. From dumbbells to dactyls, it is strength and spirit in a single sip.</p>
+</section>
+
+<section id="contact">
+    <h2>Send Word</h2>
+    <p>Dispatch a scroll via digital dove: <a href="mailto:theshakespire@gmail.com">theshakespire@gmail.com</a></p>
+</section>
+
+<footer>
+    <p>© 2025 Shakespire. Brewed in prose. Built for power.</p>
+</footer>
+
+</body>
+</html>
