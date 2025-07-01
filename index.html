@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shakespire – Forsooth, Thou Shakest</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Garamond', serif;
+        background: #f5efe1;
+        color: #3b2a1c;
+    }
+    header {
+        background-color: #7a583a;
+        color: #fdf5e6;
+        text-align: center;
+        padding: 3em 1em 2em 1em;
+    }
+    header img {
+        width: 120px;
+        margin-bottom: 1em;
+    }
+    header h1 {
+        font-size: 3.2em;
+        margin: 0;
+        font-variant: small-caps;
+    }
+    header p {
+        font-size: 1.2em;
+        font-style: italic;
+        margin-top: 0.5em;
+    }
+    nav {
+        background: #5a3e2b;
+        text-align: center;
+        padding: 1em 0;
+    }
+    nav a {
+        margin: 0 1.5em;
+        text-decoration: none;
+        color: #fdf2dd;
+        font-weight: bold;
+        font-size: 1em;
+    }
+    section {
+        padding: 3em 2em;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .shake-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2em;
+    }
+    .shake {
+        background: #fffaf1;
+        border: 2px solid #e4d7be;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .shake:hover {
+        transform: translateY(-5px);
+    }
+    .shake img {
+        width: 100%;
+        display: block;
+    }
+    .shake h3 {
+        margin: 0.5em 1em 0 1em;
+        font-size: 1.5em;
+        color: #4d2c13;
+    }
+    .shake p {
+        margin: 0.5em 1em 1em 1em;
+        font-size: 1em;
+        color: #5c4532;
+    }
+    h2 {
+        text-align: center;
+        color: #4d2c13;
+        font-size: 2.2em;
+        margin-bottom: 1em;
+    }
+    footer {
+        background-color: #4d2c13;
+        color: #f0e6d2;
+        text-align: center;
+        padding: 2em;
+    }
+    .flavor {
+        background: #fff8e1;
+        margin: 1.5em 0;
+        padding: 1em;
+        border-radius: 10px;
+        border: 1px solid #e0d4b7;
+        cursor: pointer;
+    }
+    .flavor h3 {
+        margin: 0;
+    }
+    .flavor .details {
+        display: none;
+        margin-top: 0.5em;
+    }
+    .flavor.open .details {
+        display: block;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+        background-color: #fff8e1;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 10px;
+        color: #3b2a1c;
+        font-family: 'Garamond', serif;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .shake img {
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<header>
+<img alt="Shakespire Logo" src="shakespire_logopng.png"/>
+<h1>Shakespire</h1>
+<p>“To drink, or not to drink? There is no question.”</p>
+</header>
+<nav>
+<a href="#shakes">Flavours</a>
+<a href="#locations">Find Us</a>
+<a href="#story">Tale</a>
+<a href="#contact">Scroll Us</a>
+</nav>
+<section id="shakes">
+<h2>Thy Shakes of Might</h2>
+<div class="shake-grid">
+<div class="shake">
+<img alt="Muscle Booster" onclick="openModal('modalMuscle')" src="musclebooster.jpeg"/>
+<h3>Muscle Booster</h3>
+<p>White Chocolate Protein, Dark Chocolate Protein, Corn Flakes, Cocoa<br/><strong>50g Protein</strong><br/><strong>Calories:</strong> 633<br/><strong>Fat:</strong> 26.3g<br/><strong>Carbs:</strong> 42g</p>
+</div>
+<div class="shake">
+<img alt="Beehive" onclick="openModal('modalBeehive')" src="beehive.jpeg"/>
+<h3>Beehive</h3>
+<p>Honey, Chia Seeds, Flaxseeds, Pumpkin Seeds, Sesame, Pistachio<br/><strong>35g Protein</strong><br/><strong>Calories:</strong> 508<br/><strong>Fat:</strong> 21.3g<br/><strong>Carbs:</strong> 37g</p>
+</div>
+<div class="shake">
+<img alt="Berry Burn" onclick="openModal('modalBerry')" src="berryburn.jpeg"/>
+<h3>Berry Burn</h3>
+<p>Cranberries, Dark Chocolate Protein, Chia Seeds<br/><strong>35g Protein</strong><br/><strong>Calories:</strong> 478<br/><strong>Fat:</strong> 19.3g<br/><strong>Carbs:</strong> 35g</p>
+</div>
+</div>
+</section>
+<section id="locations">
+<h2>Where Doth One Find Us?</h2>
+<p>Seek our elixirs in select gyms, cafés, and halls of health. Shakespire cometh not by mail — but by might, in person.</p>
+</section>
+<section id="story">
+<h2>The Tale of Shakespire</h2>
+<p>
+Hark! Attend thee now the tale of a sprightly youth, a bard-born knave of theatre and biceps, 
+who dreameth not only of applause upon the stage, but of strength within the frame.  
+In lands of dumbbells and verse did he wander, from iambic pentameter to protein blends.  
+Thus was born Shakespire — a draught for those who train their form and lift their spirit.  
+To drink, or not to drink? Verily, there be no question.
+</p>
+</section>
+<section id="contact">
+<h2>Send Word</h2>
+<p>Dispatch a scroll via digital dove: <a href="mailto:theshakespire@gmail.com">theshakespire@gmail.com</a></p>
+</section>
+<footer>
+
+  <p>
+    <a href="https://www.instagram.com/theshakespire?igsh=OHdweWQ4cXk3NWox&utm_source=qr" target="_blank" style="text-decoration: none;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:30px; height:30px; vertical-align:middle; margin-right:8px;">
+      <span style="color: #f0e6d2; font-size: 1em;">Follow us on Instagram</span>
+    </a>
+  </p>
+
+<p>© 2025 Shakespire. Brewed in prose. Built for power.</p>
+</footer>
+<section id="flavordetails">
+<h2>Discover Thy Shake's Secrets</h2>
+<div class="flavor" onclick="this.classList.toggle('open')">
+<h3>💪 Muscle Booster</h3>
+<div class="details">
+    <p><strong>Key Ingredients:</strong> White Chocolate Protein, Dark Chocolate Protein, Corn Flakes, Cocoa</p>
+    <p><strong>Superfoods & Benefits:</strong><br>
+    – Cocoa: Enhances mood, rich in antioxidants<br>
+    – Corn Flakes: Source of quick carbs and iron<br>
+    – Dark & White Chocolate Protein: Supports muscle repair and growth</p>
+    <p><strong>Vitamins & Nutrients:</strong><br>
+    Vitamin D, Calcium, Potassium, Iron</p>
+    </div>
+</div>
+<div class="flavor" onclick="this.classList.toggle('open')">
+<h3>🍓 Berry Burn</h3>
+<div class="details">
+    <p><strong>Key Ingredients:</strong> Cranberries, Dark Chocolate Protein, Chia Seeds</p>
+    <p><strong>Superfoods & Benefits:</strong><br>
+    – Cranberries: Antioxidants and urinary health<br>
+    – Dark Chocolate: Brain-boosting and iron-rich<br>
+    – Chia Seeds: Rich in omega-3s and fiber</p>
+    <p><strong>Vitamins & Nutrients:</strong><br>
+    Vitamin C, Iron, Magnesium, Omega-3s</p>
+    </div>
+</div>
+<div class="flavor" onclick="this.classList.toggle('open')">
+<h3>🐝 Beehive</h3>
+<div class="details">
+    <p><strong>Key Ingredients:</strong> Honey, Chia Seeds, Flaxseeds, Pumpkin Seeds, Sesame, Pistachio</p>
+    <p><strong>Superfoods & Benefits:</strong><br>
+    – Honey: Natural energy booster and antioxidant<br>
+    – Chia Seeds: Omega-3s, fiber, and calcium<br>
+    – Flaxseeds: Rich in lignans and fiber<br>
+    – Pumpkin Seeds: High in magnesium and zinc<br>
+    – Pistachios: Heart-healthy fats and protein</p>
+    <p><strong>Vitamins & Nutrients:</strong><br>
+    Vitamin E, Zinc, Magnesium, Omega-3s</p>
+    </div>
+</div>
+</section>
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+</script>
+<!-- Modals for each shake -->
+<div class="modal" id="modalMuscle">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalMuscle')">×</span>
+    <h3>💪 Muscle Booster</h3>
+    <p><strong>Key Ingredients:</strong> White Chocolate Protein, Dark Chocolate Protein, Corn Flakes, Cocoa</p>
+    <p><strong>Superfoods & Benefits:</strong><br>
+      – Cocoa: Enhances mood, rich in antioxidants<br>
+      – Corn Flakes: Source of quick carbs and iron<br>
+      – Dark & White Chocolate Protein: Supports muscle repair and growth
+    </p>
+    <p><strong>Vitamins & Nutrients:</strong><br>
+      Vitamin D, Calcium, Potassium, Iron
+    </p>
+    <p><strong>Macros:</strong><br>
+      Protein: 50g<br>
+      Calories: 633 kcal<br>
+      Fat: 26.3g<br>
+      Carbs: 42g
+    </p>
+  </div>
+</div>
+<div class="modal" id="modalBeehive">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalBeehive')">×</span>
+    <h3>🐝 Beehive</h3>
+    <p><strong>Key Ingredients:</strong> Honey, Chia Seeds, Flaxseeds, Pumpkin Seeds, Sesame, Pistachio</p>
+    <p><strong>Superfoods & Benefits:</strong><br>– Honey: Natural energy booster and antioxidant<br>– Chia Seeds: Omega-3s, fiber, and calcium<br>– Flaxseeds: Rich in lignans and fiber<br>– Pumpkin Seeds: High in magnesium and zinc<br>– Pistachios: Heart-healthy fats and protein</p>
+    <p><strong>Vitamins & Nutrients:</strong><br>Vitamin E, Zinc, Magnesium, Omega-3s</p>
+    <p><strong>Macros:</strong><br>Protein: 35g<br>Calories: 508 kcal<br>Fat: 21.3g<br>Carbs: 37g</p>
+  </div>
+</div>
+<div class="modal" id="modalBerry">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalBerry')">×</span>
+    <h3>🍓 Berry Burn</h3>
+    <p><strong>Key Ingredients:</strong> Cranberries, Dark Chocolate Protein, Chia Seeds</p>
+    <p><strong>Superfoods & Benefits:</strong><br>– Cranberries: Antioxidants and urinary health<br>– Dark Chocolate: Brain-boosting and iron-rich<br>– Chia Seeds: Rich in omega-3s and fiber</p>
+    <p><strong>Vitamins & Nutrients:</strong><br>Vitamin C, Iron, Magnesium, Omega-3s</p>
+    <p><strong>Macros:</strong><br>Protein: 35g<br>Calories: 478 kcal<br>Fat: 19.3g<br>Carbs: 35g</p>
+  </div>
+</div>
+</body>
+</html>
